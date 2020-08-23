@@ -36,7 +36,7 @@ public class Rule implements IRule {
         if(this.type != null && product.getType() != this.type){
             return null;
         }
-        IAction action = new ActionFactory().getAction("GeneratePackingSlipAction");
+        IAction action = new ActionFactory().getAction(this.ruleAction);
         action.performAction();
         return action;
     }

@@ -15,7 +15,8 @@ import java.util.List;
 public class RuleEngine {
     List<IRule> ruleList = new ArrayList<IRule>();
     RuleEngine(){
-        ruleList.add(createRule(MODE.PHYSICAL,null,null,null,"Generate packing slip for shipping"));
+        ruleList.add(createRule(MODE.PHYSICAL,null,null,null,"GeneratePackingSlipAction"));
+        ruleList.add(createRule(null,null,TYPE.BOOK,null,"DuplicatePackingSlipRoyaltyDept"));
     }
     IRule createRule(MODE mode, ACTION action, TYPE type,String name,String ruleAction){
         IRule rule = new Rule(mode,action,type,name,ruleAction);
@@ -25,7 +26,8 @@ public class RuleEngine {
     public List<IAction> checkForProduct(IProduct book) {
         List<IAction> actions = new ArrayList<>();
        for(IRule rule : ruleList){
-         actions.add(rule.verifyRule(book));
+           IAction temp= rule.verifyRule(book);
+           if(temp!=null) actions.add(temp);
        }
        return actions;
     }
