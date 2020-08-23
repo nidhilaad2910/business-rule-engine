@@ -5,6 +5,7 @@ import com.rule.engine.enums.MODE;
 import com.rule.engine.enums.TYPE;
 import com.rule.engine.product.IProduct;
 import com.rule.engine.product.Product;
+import com.rule.engine.rules.Rule;
 
 import java.util.Scanner;
 
@@ -36,10 +37,11 @@ public class RuleMainClass {
 
                     break;
                 case 2:
-                    System.out.println("Enter rule condition");
+                    System.out.println("Enter mode expected");
                     String condition = scanner.next();
                     System.out.println("Enter rule action ");
                     String ruleaction = scanner.next();
+                    //Add conditions for adding rules
 
                     break;
                 default:
