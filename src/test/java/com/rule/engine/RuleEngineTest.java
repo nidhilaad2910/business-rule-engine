@@ -44,5 +44,12 @@ public class RuleEngineTest {
         Assert.assertEquals(action.size(),1);
         Assert.assertEquals(action.get(0).getClass(), UpgradeMembership.class);
     }
+    @Test
+    public void ruleEngine_Rule5_Success(){
+        Product product = new Product(ACTION.UPGRADE, null, TYPE.OTHER,"upgrade action");
+        List<IAction> action = ruleEngine.checkForProduct(product);
+        Assert.assertEquals(action.size(),1);
+        Assert.assertEquals(action.get(0).getClass(), SendNotification.class);
+    }
 }
 
