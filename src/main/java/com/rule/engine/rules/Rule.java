@@ -24,16 +24,16 @@ public class Rule implements IRule {
         this.ruleAction = ruleAction;
     }
     public IAction verifyRule(IProduct product){
-        if(this.action != null && product.getAction() != this.action){
+        if(this.action !=null && this.action!=ACTION.NULL && product.getAction() != this.action){
             return null;
         }
-        if(this.mode != null && product.getMode() != this.mode){
+        if(this.mode != null && this.mode!=MODE.NULL && product.getMode() != this.mode){
             return null;
         }
         if(this.name != null && !product.getName().equals(this.name)){
             return null;
         }
-        if(this.type != null && product.getType() != this.type){
+        if(this.type != null && this.type!=TYPE.NULL && product.getType() != this.type){
             return null;
         }
         IAction action = new ActionFactory().getAction(this.ruleAction);

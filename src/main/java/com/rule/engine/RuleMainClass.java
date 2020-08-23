@@ -37,11 +37,19 @@ public class RuleMainClass {
 
                     break;
                 case 2:
-                    System.out.println("Enter mode expected");
-                    String condition = scanner.next();
-                    System.out.println("Enter rule action ");
-                    String ruleaction = scanner.next();
+                    System.out.println("Enter mode expected(PHYSICAL,DIGITAL,NULL)");
+                    String mode1 = scanner.next();
+                    System.out.println("Enter type expected (BOOK,MEMBERHIP,VIDEO,OTHER,NULL)");
+                    String type1 = scanner.next();
+                    System.out.println("Enter action expected (ACTIVATE,UPGRADE,NULL)");
+                    String action1 = scanner.next();
+                    System.out.println("Enter name expected ");
+                    String name1 = scanner.next();
+                    System.out.println("Enter ruleAction expected ");
+                    String ruleAction = scanner.next();
                     //Add conditions for adding rules
+                    new Rule(MODE.valueOf(mode1),ACTION.valueOf(action1),
+                            TYPE.valueOf(type1),name1,ruleAction);
 
                     break;
                 default:
