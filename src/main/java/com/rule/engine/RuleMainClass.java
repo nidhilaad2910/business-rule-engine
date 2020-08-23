@@ -48,8 +48,8 @@ public class RuleMainClass {
                     System.out.println("Enter ruleAction expected ");
                     String ruleAction = scanner.next();
                     //Add conditions for adding rules
-                    new Rule(MODE.valueOf(mode1),ACTION.valueOf(action1),
-                            TYPE.valueOf(type1),name1,ruleAction);
+                    ruleEngine.ruleList.add(new Rule(MODE.valueOf(mode1),ACTION.valueOf(action1),
+                            TYPE.valueOf(type1),name1,ruleAction));
 
                     break;
                 default:
