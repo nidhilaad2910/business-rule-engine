@@ -1,5 +1,6 @@
 package com.rule.engine;
 
+import com.rule.engine.action.IAction;
 import com.rule.engine.enums.ACTION;
 import com.rule.engine.enums.MODE;
 import com.rule.engine.enums.TYPE;
@@ -21,10 +22,11 @@ public class RuleEngine {
         return rule;
     }
 
-    public void checkForProduct(IProduct book) {
-
+    public List<IAction> checkForProduct(IProduct book) {
+        List<IAction> actions = new ArrayList<>();
        for(IRule rule : ruleList){
-          rule.verifyRule(book);
+         actions.add(rule.verifyRule(book));
        }
+       return actions;
     }
 }

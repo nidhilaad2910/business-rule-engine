@@ -1,5 +1,8 @@
 package com.rule.engine.rules;
 
+import com.rule.engine.action.ActionFactory;
+import com.rule.engine.action.GeneratePackingSlipAction;
+import com.rule.engine.action.IAction;
 import com.rule.engine.enums.ACTION;
 import com.rule.engine.enums.MODE;
 import com.rule.engine.enums.TYPE;
@@ -20,21 +23,22 @@ public class Rule implements IRule {
         this.name = name;
         this.ruleAction = ruleAction;
     }
-    public boolean verifyRule(IProduct product){
+    public IAction verifyRule(IProduct product){
         if(this.action != null && product.getAction() != this.action){
-            return false;
+            return null;
         }
         if(this.mode != null && product.getMode() != this.mode){
-            return false;
+            return null;
         }
         if(this.name != null && !product.getName().equals(this.name)){
-            return false;
+            return null;
         }
         if(this.type != null && product.getType() != this.type){
-            return false;
+            return null;
         }
-        System.out.println("-----"+ruleAction+"------");
-        return true;
+        IAction action = new ActionFactory().getAction("GeneratePackingSlipAction");
+        action.performAction();
+        return action;
     }
 
     public String getAction() {
