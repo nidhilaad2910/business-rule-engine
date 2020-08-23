@@ -20,7 +20,7 @@ public class RuleEngineTest {
     RuleEngine ruleEngine = new RuleEngine();
     @Test
     public void ruleEngine_Rule1_Success(){
-        Product product = new Product(ACTION.ACTIVATE, MODE.PHYSICAL, TYPE.MEMBERHIP,"Mempership Activate");
+        Product product = new Product(ACTION.ACTIVATE, MODE.PHYSICAL, TYPE.OTHER,"Mempership Activate");
         List<IAction> action = ruleEngine.checkForProduct(product);
         Assert.assertEquals(action.size(),1);
         Assert.assertEquals(action.get(0).getClass(), GeneratePackingSlipAction.class);

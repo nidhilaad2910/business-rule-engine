@@ -17,6 +17,7 @@ public class RuleEngine {
     RuleEngine(){
         ruleList.add(createRule(MODE.PHYSICAL,null,null,null,"GeneratePackingSlipAction"));
         ruleList.add(createRule(null,null,TYPE.BOOK,null,"DuplicatePackingSlipRoyaltyDept"));
+        ruleList.add(createRule(null,null,TYPE.MEMBERHIP,null,"ActivateMembership"));
     }
     IRule createRule(MODE mode, ACTION action, TYPE type,String name,String ruleAction){
         IRule rule = new Rule(mode,action,type,name,ruleAction);

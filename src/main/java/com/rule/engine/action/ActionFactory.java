@@ -8,6 +8,8 @@ public class ActionFactory {
                 return new GeneratePackingSlipAction();
             case "DuplicatePackingSlipRoyaltyDept":
                 return new DuplicatePackingSlipRoyaltyDept();
+            case "ActivateMembership":
+                return new ActivateMembership();
         }
         return null;
     }
