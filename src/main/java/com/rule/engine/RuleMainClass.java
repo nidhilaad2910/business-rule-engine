@@ -9,6 +9,7 @@ import com.rule.engine.product.Product;
 import java.util.Scanner;
 
 public class RuleMainClass {
+    static RuleEngine ruleEngine = new RuleEngine();
     public static void main(String args[]) {
 
         System.out.println("Rule Engine Started");
@@ -31,6 +32,8 @@ public class RuleMainClass {
                     String name = scanner.next();
                     IProduct product = new Product(ACTION.valueOf(action), MODE.valueOf(mode),
                             TYPE.valueOf(type), name);
+                    ruleEngine.checkForProduct(product);
+
                     break;
                 case 2:
                     System.out.println("Enter rule condition");
