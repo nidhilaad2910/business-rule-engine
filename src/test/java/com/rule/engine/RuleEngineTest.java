@@ -56,5 +56,12 @@ public class RuleEngineTest {
         Assert.assertEquals(action.size(),1);
         Assert.assertEquals(action.get(0).getClass(), SendNotification.class);
     }
+    @Test
+    public void ruleEngine_Rule6_Success(){
+        Product product = new Product(null, null, TYPE.OTHER,"Learning to Ski");
+        List<IAction> action = ruleEngine.checkForProduct(product);
+        Assert.assertEquals(action.size(),1);
+        Assert.assertEquals(action.get(0).getClass(), AddFreeVideo.class);
+    }
 }
 
