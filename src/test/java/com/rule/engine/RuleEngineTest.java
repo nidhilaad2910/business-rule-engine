@@ -65,10 +65,11 @@ public class RuleEngineTest {
     }
     @Test
     public void ruleEngine_Rule7_Success(){
-        Product product = new Product(null, MODE.PHYSICAL, null,null);
+        Product product = new Product(null, MODE.PHYSICAL, null,"product");
         List<IAction> action = ruleEngine.checkForProduct(product);
-        Assert.assertEquals(1,action.size());
-        Assert.assertEquals(action.get(0).getClass(), GenerateCommissionPayment.class);
+        Assert.assertEquals(2,action.size());
+        Assert.assertEquals(action.get(0).getClass(), GeneratePackingSlipAction.class);
+        Assert.assertEquals(action.get(1).getClass(), GenerateCommissionPayment.class);
     }
 }
 

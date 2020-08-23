@@ -16,6 +16,8 @@ public class ActionFactory {
                 return new SendNotification();
             case "AddFreeVideo":
                 return new AddFreeVideo();
+            case "GenerateCommissionPayment":
+                return new GenerateCommissionPayment();
         }
         return null;
     }
