@@ -1,9 +1,6 @@
 package com.rule.engine;
 
-import com.rule.engine.action.ActivateMembership;
-import com.rule.engine.action.DuplicatePackingSlipRoyaltyDept;
-import com.rule.engine.action.GeneratePackingSlipAction;
-import com.rule.engine.action.IAction;
+import com.rule.engine.action.*;
 import com.rule.engine.enums.ACTION;
 import com.rule.engine.enums.MODE;
 import com.rule.engine.enums.TYPE;
@@ -38,6 +35,14 @@ public class RuleEngineTest {
         List<IAction> action = ruleEngine.checkForProduct(product);
         Assert.assertEquals(action.size(),1);
         Assert.assertEquals(action.get(0).getClass(), ActivateMembership.class);
+    }
+
+    @Test
+    public void ruleEngine_Rule4_Success(){
+        Product product = new Product(ACTION.UPGRADE, null, TYPE.MEMBERHIP,"Website Membership upgrade");
+        List<IAction> action = ruleEngine.checkForProduct(product);
+        Assert.assertEquals(action.size(),1);
+        Assert.assertEquals(action.get(0).getClass(), UpgradeMembership.class);
     }
 }
 
