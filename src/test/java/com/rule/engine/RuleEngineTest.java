@@ -58,10 +58,17 @@ public class RuleEngineTest {
     }
     @Test
     public void ruleEngine_Rule6_Success(){
-        Product product = new Product(null, null, TYPE.OTHER,"Learning to Ski");
+        Product product = new Product(null, null, TYPE.VIDEO,"Learning to Ski");
         List<IAction> action = ruleEngine.checkForProduct(product);
-        Assert.assertEquals(action.size(),1);
+        Assert.assertEquals(1,action.size());
         Assert.assertEquals(action.get(0).getClass(), AddFreeVideo.class);
+    }
+    @Test
+    public void ruleEngine_Rule7_Success(){
+        Product product = new Product(null, MODE.PHYSICAL, null,null);
+        List<IAction> action = ruleEngine.checkForProduct(product);
+        Assert.assertEquals(1,action.size());
+        Assert.assertEquals(action.get(0).getClass(), GenerateCommissionPayment.class);
     }
 }
 

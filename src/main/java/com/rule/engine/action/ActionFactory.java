@@ -14,6 +14,8 @@ public class ActionFactory {
                 return new UpgradeMembership();
             case "SendNotification":
                 return new SendNotification();
+            case "AddFreeVideo":
+                return new AddFreeVideo();
         }
         return null;
     }
