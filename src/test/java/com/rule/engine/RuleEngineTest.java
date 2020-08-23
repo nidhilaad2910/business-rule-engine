@@ -71,5 +71,13 @@ public class RuleEngineTest {
         Assert.assertEquals(action.get(0).getClass(), GeneratePackingSlipAction.class);
         Assert.assertEquals(action.get(1).getClass(), GenerateCommissionPayment.class);
     }
+    @Test
+    public void ruleEngine_Rule8_Success(){
+        Product product = new Product(null, null, TYPE.BOOK,"product");
+        List<IAction> action = ruleEngine.checkForProduct(product);
+        Assert.assertEquals(2,action.size());
+        Assert.assertEquals(action.get(0).getClass(), DuplicatePackingSlipRoyaltyDept.class);
+        Assert.assertEquals(action.get(1).getClass(), GenerateCommissionPayment.class);
+    }
 }
 

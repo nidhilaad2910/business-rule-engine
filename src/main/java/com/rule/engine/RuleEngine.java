@@ -23,6 +23,7 @@ public class RuleEngine {
         ruleList.add(createRule(null,null,TYPE.MEMBERHIP,null,"SendNotification"));
         ruleList.add(createRule(null,null,TYPE.VIDEO,"Learning to Ski","AddFreeVideo"));
         ruleList.add(createRule(MODE.PHYSICAL,null,null,"product","GenerateCommissionPayment"));
+        ruleList.add(createRule(null,null,TYPE.BOOK,"product","GenerateCommissionPayment"));
     }
     IRule createRule(MODE mode, ACTION action, TYPE type,String name,String ruleAction){
         IRule rule = new Rule(mode,action,type,name,ruleAction);
