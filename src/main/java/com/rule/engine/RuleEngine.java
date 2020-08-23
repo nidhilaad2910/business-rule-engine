@@ -19,6 +19,8 @@ public class RuleEngine {
         ruleList.add(createRule(null,null,TYPE.BOOK,null,"DuplicatePackingSlipRoyaltyDept"));
         ruleList.add(createRule(null,ACTION.ACTIVATE,TYPE.MEMBERHIP,null,"ActivateMembership"));
         ruleList.add(createRule(null,ACTION.UPGRADE,TYPE.MEMBERHIP,null,"UpgradeMembership"));
+        ruleList.add(createRule(null,ACTION.UPGRADE,null,null,"SendNotification"));
+        ruleList.add(createRule(null,null,TYPE.MEMBERHIP,null,"SendNotification"));
     }
     IRule createRule(MODE mode, ACTION action, TYPE type,String name,String ruleAction){
         IRule rule = new Rule(mode,action,type,name,ruleAction);

@@ -12,6 +12,8 @@ public class ActionFactory {
                 return new ActivateMembership();
             case "UpgradeMembership":
                 return new UpgradeMembership();
+            case "SendNotification":
+                return new SendNotification();
         }
         return null;
     }

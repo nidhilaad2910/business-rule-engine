@@ -33,16 +33,21 @@ public class RuleEngineTest {
     public void ruleEngine_Rule3_Success(){
         Product product = new Product(ACTION.ACTIVATE, null, TYPE.MEMBERHIP,"Website Membership");
         List<IAction> action = ruleEngine.checkForProduct(product);
-        Assert.assertEquals(action.size(),1);
+        Assert.assertEquals(action.size(),2);
         Assert.assertEquals(action.get(0).getClass(), ActivateMembership.class);
+        Assert.assertEquals(action.get(1).getClass(), SendNotification.class);
     }
 
     @Test
     public void ruleEngine_Rule4_Success(){
         Product product = new Product(ACTION.UPGRADE, null, TYPE.MEMBERHIP,"Website Membership upgrade");
         List<IAction> action = ruleEngine.checkForProduct(product);
-        Assert.assertEquals(action.size(),1);
-        Assert.assertEquals(action.get(0).getClass(), UpgradeMembership.class);
+        Assert.assertEquals(3,action.size());
+
+        Assert.assertEquals(action.get(0).getClass(),UpgradeMembership.class);
+        Assert.assertEquals(action.get(1).getClass(),SendNotification.class);
+        Assert.assertEquals(action.get(2).getClass(),SendNotification.class);
+
     }
     @Test
     public void ruleEngine_Rule5_Success(){
