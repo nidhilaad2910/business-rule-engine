@@ -10,6 +10,8 @@ public class ActionFactory {
                 return new DuplicatePackingSlipRoyaltyDept();
             case "ActivateMembership":
                 return new ActivateMembership();
+            case "UpgradeMembership":
+                return new UpgradeMembership();
         }
         return null;
     }

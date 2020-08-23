@@ -31,7 +31,7 @@ public class RuleEngineTest {
     }
     @Test
     public void ruleEngine_Rule3_Success(){
-        Product product = new Product(null, null, TYPE.MEMBERHIP,"Website Membership");
+        Product product = new Product(ACTION.ACTIVATE, null, TYPE.MEMBERHIP,"Website Membership");
         List<IAction> action = ruleEngine.checkForProduct(product);
         Assert.assertEquals(action.size(),1);
         Assert.assertEquals(action.get(0).getClass(), ActivateMembership.class);
