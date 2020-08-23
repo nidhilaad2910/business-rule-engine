@@ -1,5 +1,5 @@
 package com.rule.engine.enums;
 
 public enum ACTION {
-    ACTIVATE,UPGRADE;
+    ACTIVATE,UPGRADE,ANY;
 }

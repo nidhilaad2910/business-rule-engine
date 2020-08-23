@@ -1,8 +1,14 @@
 package com.rule.engine.rules;
 
-public class Rule1 implements IRule {
+public class Rule implements IRule {
     String action;
     String condition;
+
+    public Rule(String action, String condition) {
+        this.action = action;
+        this.condition = condition;
+    }
+
     public String getAction() {
         return null;
     }

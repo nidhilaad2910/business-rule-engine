@@ -9,16 +9,17 @@ import com.rule.engine.product.Product;
 import java.util.Scanner;
 
 public class RuleMainClass {
-    public static void main(String args[]){
+    public static void main(String args[]) {
+
         System.out.println("Rule Engine Started");
-        while(true) {
+        while (true) {
             System.out.println("Choose opration to be performed");
             System.out.println("1. Add payment for new product - enter 1");
             System.out.println("2. Add new rule - enter 2");
             System.out.println("3. To Exit - enter 3");
             Scanner scanner = new Scanner(System.in);
             int option = scanner.nextInt();
-            switch (option){
+            switch (option) {
                 case 1:
                     System.out.println("Enter product mode (PHYSICAL/DIGITAL)");
                     String mode = scanner.next();
@@ -29,7 +30,7 @@ public class RuleMainClass {
                     System.out.println("Enter product name ");
                     String name = scanner.next();
                     IProduct product = new Product(ACTION.valueOf(action), MODE.valueOf(mode),
-                                       TYPE.valueOf(type),name);
+                            TYPE.valueOf(type), name);
                     break;
                 case 2:
                     System.out.println("Enter rule condition");
@@ -42,8 +43,6 @@ public class RuleMainClass {
                     return;
             }
         }
-
-
-
     }
+
 }
