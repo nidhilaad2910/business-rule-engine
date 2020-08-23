@@ -6,6 +6,8 @@ public class ActionFactory {
         switch (action){
             case "GeneratePackingSlipAction":
                 return new GeneratePackingSlipAction();
+            case "DuplicatePackingSlipRoyaltyDept":
+                return new DuplicatePackingSlipRoyaltyDept();
         }
         return null;
     }

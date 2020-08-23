@@ -1,5 +1,7 @@
 package com.rule.engine;
 
+import com.rule.engine.action.DuplicatePackingSlipRoyaltyDept;
+import com.rule.engine.action.GeneratePackingSlipAction;
 import com.rule.engine.action.IAction;
 import com.rule.engine.enums.ACTION;
 import com.rule.engine.enums.MODE;
@@ -20,6 +22,14 @@ public class RuleEngineTest {
         Product product = new Product(ACTION.ACTIVATE, MODE.PHYSICAL, TYPE.BOOK,"Life Of Pie");
         List<IAction> action = ruleEngine.checkForProduct(product);
         Assert.assertEquals(action.size(),1);
+        Assert.assertEquals(action.get(0).getClass(), GeneratePackingSlipAction.class);
+    }
+    @Test
+    public void ruleEngine_Rule2_Success(){
+        Product product = new Product(ACTION.ACTIVATE, MODE.DIGITAL, TYPE.BOOK,"Life Of Pie");
+        List<IAction> action = ruleEngine.checkForProduct(product);
+        Assert.assertEquals(action.size(),1);
+        Assert.assertEquals(action.get(0).getClass(), DuplicatePackingSlipRoyaltyDept.class);
     }
 }
 
